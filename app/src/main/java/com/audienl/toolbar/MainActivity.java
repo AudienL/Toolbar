@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         mToolbar.setOnToolbarClickedListener(new Toolbar.SimpleOnToolbarClickedListener() {
             @Override
             public void onReturnClick() {
-                finish();
+//                finish();
             }
 
             @Override

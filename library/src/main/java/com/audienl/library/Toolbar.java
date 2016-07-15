@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -242,18 +241,16 @@ public class Toolbar extends RelativeLayout {
                 MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY));
 
         setMeasuredDimension(width, height);
-
-        Log.e(TAG, "onMeasure: ");
     }
 
-    @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        super.onLayout(changed, l, t, r, b);
-        if (changed) {
-            mLayerToolbar.getLayoutParams().height = getHeight();
-            mLayerSelect.getLayoutParams().height = getHeight();
-        }
-    }
+//    @Override
+//    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+//        super.onLayout(changed, l, t, r, b);
+//        if (changed) {
+//            mLayerToolbar.getLayoutParams().height = getHeight();
+//            mLayerSelect.getLayoutParams().height = getHeight();
+//        }
+//    }
 
     public void hideButton1() {
         mLayoutButton1.setVisibility(GONE);
