@@ -4,7 +4,7 @@
 
 ## 效果图：
 
-![效果图](https://github.com/AudienL/Switch/blob/master/doc/demo.gif?raw=true)
+![效果图](https://github.com/AudienL/Toolbar/blob/master/doc/show.png?raw=true)
 
 ## 使用：
 
