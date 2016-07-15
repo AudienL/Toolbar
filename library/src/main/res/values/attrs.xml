@@ -1,0 +1,11 @@
+<resources>
+    <declare-styleable name="Toolbar">
+        <attr name="toolbar_title" format="string"/>
+        <!-- 是否显示返回按钮 -->
+        <attr name="toolbar_show_return" format="boolean"/>
+        <!-- 右边起第一个按钮 -->
+        <attr name="toolbar_src_button1" format="reference"/>
+        <!-- 右边起第二个按钮 -->
+        <attr name="toolbar_src_button2" format="reference"/>
+    </declare-styleable>
+</resources>

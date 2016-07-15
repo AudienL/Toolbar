@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ========================================================= -->
+    <!-- Toolbar层 -->
+    <!-- ========================================================= -->
+    <RelativeLayout
+        android:id="@+id/layer_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:background="@android:color/holo_green_dark"
+        tools:visibility="visible">
+        <!-- 左边返回+标题 -->
+        <LinearLayout
+            android:id="@+id/layout_return"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/selector_toolbar_press"
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ImageView
+                android:id="@+id/iv_return"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/icon_return"/>
+
+            <TextView
+                android:id="@+id/tv_title_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textColor="#ECF0F1"
+                android:textSize="18sp"
+                tools:text="左边的标题"/>
+        </LinearLayout>
+
+        <!-- 中间标题 -->
+        <TextView
+            android:id="@+id/tv_title_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:ellipsize="middle"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="#ECF0F1"
+            android:textSize="18sp"
+            tools:text="中间的标题"/>
+
+        <!-- 右边第一个按钮 -->
+        <RelativeLayout
+            android:id="@+id/layout_button1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/selector_toolbar_press"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            >
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/shape_toolbar_button"/>
+
+            <ImageView
+                android:id="@+id/iv_button1"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_centerInParent="true"
+                tools:src="@drawable/shape_rect_black"/>
+        </RelativeLayout>
+
+        <!-- 右边第二个按钮 -->
+        <RelativeLayout
+            android:id="@+id/layout_button2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/layout_button1"
+            android:background="@drawable/selector_toolbar_press"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            >
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/shape_toolbar_button"/>
+
+            <ImageView
+                android:id="@+id/iv_button2"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_centerInParent="true"
+                tools:src="@drawable/shape_rect_black"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <!-- ========================================================= -->
+    <!-- 选择层 -->
+    <!-- ========================================================= -->
+    <RelativeLayout
+        android:id="@+id/layer_select"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:visibility="gone">
+        <!-- 取消 -->
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/selector_button_stroke"
+            android:minWidth="48dp"
+            android:text="取消"
+            android:textColor="#ECF0F1"
+            />
+
+        <!-- 中间提示选中了多少项 -->
+        <TextView
+            android:id="@+id/tv_select_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="已选中 0 项"
+            android:textColor="#ECF0F1"
+            />
+
+        <!-- 全选 -->
+        <Button
+            android:id="@+id/btn_select_all"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/selector_button_select_all"
+            android:minWidth="48dp"
+            android:text="全选"
+            android:textColor="#ECF0F1"
+            />
+    </RelativeLayout>
+</merge>
