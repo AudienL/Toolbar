@@ -10,7 +10,6 @@
         android:id="@+id/layer_toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:background="@android:color/holo_green_dark"
         tools:visibility="visible">
         <!-- 左边返回+标题 -->
         <LinearLayout

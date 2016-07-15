@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import android.widget.TextView;
  * @author audienl@qq.com on 2016/7/15.
  */
 public class Toolbar extends RelativeLayout {
+    private static final String TAG = "Toolbar";
     protected Context context;
 
     /** 标题 */
@@ -59,6 +61,7 @@ public class Toolbar extends RelativeLayout {
     /** 是否已经全选了 */
     private boolean isSelectedAll = false;
 
+    // 默认宽高
     private int mDefaultWidth;
     private int mDefaultHeight;
 
@@ -85,31 +88,22 @@ public class Toolbar extends RelativeLayout {
         mDefaultWidth = context.getResources().getDisplayMetrics().widthPixels;
         mDefaultHeight = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 48, context.getResources().getDisplayMetrics());
 
-        View view = LayoutInflater.from(context).inflate(R.layout.tool_bar, this, true);
-        initLayerToolbar(view);
-        initLayerSelect(view);
+        LayoutInflater.from(context).inflate(R.layout.tool_bar, this, true);
+        initLayerToolbar();
+        initLayerSelect();
     }
-
-//    @Override
-//    protected void onFinishInflate() {
-//        super.onFinishInflate();
-//        View view = LayoutInflater.from(context).inflate(R.layout.tool_bar, this, true);
-//
-//        initLayerToolbar(view);
-//        initLayerSelect(view);
-//    }
 
     /**
      * 初始化Toolbar层
      */
-    private void initLayerToolbar(View rootView) {
-        mLayerToolbar = (ViewGroup) rootView.findViewById(R.id.layer_toolbar);
-        mLayerSelect = (ViewGroup) rootView.findViewById(R.id.layer_select);
-        mLayoutReturn = (ViewGroup) rootView.findViewById(R.id.layout_return);
-        mTvTitleLeft = (TextView) rootView.findViewById(R.id.tv_title_left);
-        mTvTitleCenter = (TextView) rootView.findViewById(R.id.tv_title_center);
-        mLayoutButton1 = (ViewGroup) rootView.findViewById(R.id.layout_button1);
-        mLayoutButton2 = (ViewGroup) rootView.findViewById(R.id.layout_button2);
+    private void initLayerToolbar() {
+        mLayerToolbar = (ViewGroup) findViewById(R.id.layer_toolbar);
+        mLayerSelect = (ViewGroup) findViewById(R.id.layer_select);
+        mLayoutReturn = (ViewGroup) findViewById(R.id.layout_return);
+        mTvTitleLeft = (TextView) findViewById(R.id.tv_title_left);
+        mTvTitleCenter = (TextView) findViewById(R.id.tv_title_center);
+        mLayoutButton1 = (ViewGroup) findViewById(R.id.layout_button1);
+        mLayoutButton2 = (ViewGroup) findViewById(R.id.layout_button2);
 
         // 返回+标题
         if (mShowReturn) {
@@ -148,7 +142,7 @@ public class Toolbar extends RelativeLayout {
                 }
             });
             // 设置图片
-            ImageView ivButton1 = (ImageView) rootView.findViewById(R.id.iv_button1);
+            ImageView ivButton1 = (ImageView) findViewById(R.id.iv_button1);
             ivButton1.setImageResource(mBtn1ImageResId);
         }
 
@@ -165,7 +159,7 @@ public class Toolbar extends RelativeLayout {
                 }
             });
             // 设置图片
-            ImageView image = (ImageView) rootView.findViewById(R.id.iv_button2);
+            ImageView image = (ImageView) findViewById(R.id.iv_button2);
             image.setImageResource(mBtn2ImageResId);
         }
     }
@@ -173,10 +167,10 @@ public class Toolbar extends RelativeLayout {
     /**
      * 初始化选择层
      */
-    private void initLayerSelect(View rootView) {
-        mBtnCancel = (Button) rootView.findViewById(R.id.btn_cancel);
-        mTvSelectCount = (TextView) rootView.findViewById(R.id.tv_select_count);
-        mBtnSelectAll = (Button) rootView.findViewById(R.id.btn_select_all);
+    private void initLayerSelect() {
+        mBtnCancel = (Button) findViewById(R.id.btn_cancel);
+        mTvSelectCount = (TextView) findViewById(R.id.tv_select_count);
+        mBtnSelectAll = (Button) findViewById(R.id.btn_select_all);
 
         // 取消
         mBtnCancel.setOnClickListener(new OnClickListener() {
@@ -244,6 +238,17 @@ public class Toolbar extends RelativeLayout {
         }
 
         setMeasuredDimension(width, height);
+
+        Log.e(TAG, "onMeasure: ");
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        super.onLayout(changed, l, t, r, b);
+        if (changed) {
+            mLayerToolbar.getLayoutParams().height = getHeight();
+            mLayerSelect.getLayoutParams().height = getHeight();
+        }
     }
 
     public void hideButton1() {
