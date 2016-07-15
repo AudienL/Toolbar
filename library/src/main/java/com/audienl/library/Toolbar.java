@@ -243,6 +243,10 @@ public class Toolbar extends RelativeLayout {
                 break;
         }
 
+        // 测量子View
+        measureChildren(MeasureSpec.makeMeasureSpec(width, MeasureSpec.EXACTLY),
+                MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY));
+
         setMeasuredDimension(width, height);
     }
 
