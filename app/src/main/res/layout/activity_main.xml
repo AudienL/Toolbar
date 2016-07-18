@@ -9,12 +9,16 @@
     tools:context="com.audienl.toolbar.MainActivity">
 
     <!-- toolbar -->
-<com.audienl.library.Toolbar
-    android:id="@+id/toolbar"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:toolbar_show_return="true"
-    app:toolbar_src_button1="@mipmap/ic_launcher"
-    app:toolbar_title="@string/app_name"/>
+    <com.audienl.library.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:toolbar_show_return="true"
+        app:toolbar_src_button1="@mipmap/ic_launcher"
+        app:toolbar_title="@string/app_name"/>
 
+    <com.audienl.library.ControlView
+        android:id="@+id/control_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </RelativeLayout>
